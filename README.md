@@ -17,3 +17,9 @@ Automated grading, if it is available for the project, consists exclusively of b
 I hypothesize that human engagement with student projects _significantly_ improves their level of engagement with the problem. Therefore, human reviews form the bulk of the grading process. Each project comes with a detailed feedback form that the reviewer fills out. These reviews happen continuously.
 
 All past reviews are made available to the reviewer, so they can comment on the development of the project over time, or on the quality of those reviews themselves. A student's ability to deliver high quality reviews is a significant part of their overall performance.
+
+Students should be able to complete projects multiple times, in the style of a code kata.
+
+## Todo
+
+- [ ] Explore the addition of code katas
