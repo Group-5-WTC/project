@@ -2,6 +2,8 @@
 
 In this project, students implement a simple Prolog interpreter. The interpreter is capable of parsing and executing Prolog programs, which are written in a subset of Prolog. The interpreter is able to handle facts, rules, and queries.
 
+Overachieving students can implement a WASM compiler for Prolog.
+
 ## Learning outcomes
 
 - Parsing and formatting
