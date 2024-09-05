@@ -5,7 +5,7 @@ def test_exact_payment():
     assert change(100_00, 100_00) == {}
 
 
-def test_east_change():
+def test_easy_change():
     assert change(50_00,  100_00) == {50_00: 1}
 
 
