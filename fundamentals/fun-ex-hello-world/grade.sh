@@ -3,9 +3,9 @@ if [ ! -f $1/greet.py ]; then
     exit 1
 fi
 
-STUDENT_OUTPUT=$(python3 $1/greet.py)
+STUDENT_OUTPUT=`python3 $1/greet.py`
 
-if [ "$STUDENT_OUTPUT" == "Hello, world!\n" ]; then
+if [ "$STUDENT_OUTPUT" == "Hello, world!" ]; then
     echo "Correct output!"
     exit 0
 else
