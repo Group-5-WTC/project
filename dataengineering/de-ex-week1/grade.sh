@@ -1,8 +1,7 @@
 cp ./solution_output.csv $1/solution_output.csv
 cd $1
 
-echo "Comparing output in dir $1: "
-ls
+echo "Comparing output in dir $1"
 
 #if [ -e prepare.sh ]; then
 #    echo "Detected prepare.sh script"
