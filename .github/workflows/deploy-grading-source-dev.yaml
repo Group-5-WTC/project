@@ -1,4 +1,4 @@
-name: Sync Fundamentals to S3 - DEV
+name: Sync Projects Grading Src to S3 - DEV
 
 on:
   push:
