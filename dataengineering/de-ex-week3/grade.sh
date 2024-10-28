@@ -18,7 +18,7 @@ echo "Comparing output in dir $1"
 #jupyter execute wtc_week1.ipynb
 
 #compare output CSV file
-file1="local_sqlite_database"
+file1="local_sqlite_database.db"
 file2="solution_sqlite_database.db"
 
 # Check if both files exist
