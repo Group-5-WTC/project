@@ -45,3 +45,6 @@ else
 
     exit 1  # Exit with code 1 if files are different
 fi
+
+# Clean up temporary files
+rm "submit.dump" "solution.dump"
