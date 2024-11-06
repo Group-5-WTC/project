@@ -1,25 +1,10 @@
-cp ./solution_sqlite_database.db $1/solution_sqlite_database.db
+cp ./solution.dump $1/solution.dump
 cd $1
 
 echo "Comparing output in dir $1"
 
-#if [ -e prepare.sh ]; then
-#    echo "Detected prepare.sh script"
-#    ./prepare.sh
-#fi
-#
-#if [ ! -e wtc_week1.ipynb ]; then
-#    echo "wtc_week1.ipynb was not found"
-#    exit 1
-#fi
-#
-##Execute notebook
-#echo "Executing Notebook wtc_week1.ipynb"
-#jupyter execute wtc_week1.ipynb
-
-#compare output CSV file
 file1="local_sqlite_database.db"
-file2="solution_sqlite_database.db"
+file2="solution.dump"
 
 # Check if both files exist
 if [ ! -f "$file1" ]; then
@@ -34,14 +19,26 @@ fi
 
 # Dump the databases to temporary files
 sqlite3 "$file1" .dump > "submit.dump"
-sqlite3 "$file2" .dump > "solution.dump"
 
 # Compare the files
-if cmp -s "submit.dump" "solution.dump"; then
-    echo "The data files are identical."
+if diff "submit.dump" "solution.dump"; then
+    echo "The databases contain the same data."
     exit 0  # Exit with code 0 if files are the same
 else
-    echo "The data files are different."
-
+    echo "The databases are different."
     exit 1  # Exit with code 1 if files are different
 fi
+
+#if cmp -s "submit.dump" "solution.dump"; then
+#    echo "The data files are identical."
+#    exit 0  # Exit with code 0 if files are the same
+#else
+#    echo "The data files are different."
+#    exit 1  # Exit with code 1 if files are different
+#fi
+
+# Clean up temporary dump files
+rm "solution.dump"
+rm "submit.dump"
+# clean up local db file
+rm "$file1"
