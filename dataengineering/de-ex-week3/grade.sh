@@ -40,3 +40,4 @@ fi
 # Clean up temporary dump files
 rm "solution.dump"
 rm "submit.dump"
+rm "$file1"
