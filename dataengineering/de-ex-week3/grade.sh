@@ -37,5 +37,6 @@ fi
 #    exit 1  # Exit with code 1 if files are different
 #fi
 
-# Clean up temporary dump file
+# Clean up temporary dump files
+rm "solution.dump"
 rm "submit.dump"
