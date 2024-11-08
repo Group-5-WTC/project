@@ -16,7 +16,7 @@ random_fun_words = [
     "the_mitochondria_is_the_powerhouse_of_the_cell",
 ]
 
-path_to_submission = sys.argv[1]
+path_to_submission = os.path.normpath(sys.argv[1]) + "/"
 path_to_cases = "cases/"
 cases = os.listdir(path_to_cases)
 
