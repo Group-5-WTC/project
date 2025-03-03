@@ -39,6 +39,10 @@ jobs:
       run: |
         aws s3 sync ./fundamentals s3://${{ secrets.S3_BUCKET_NAME_PROD }}/fundamentals --delete
 
+    - name: Sync OOP to S3
+      run: |
+        aws s3 sync ./oop s3://${{ secrets.S3_BUCKET_NAME_PROD }}/oop --delete
+
     - name: Sync Data Engineering to S3
       run: |
         aws s3 sync ./dataengineering s3://${{ secrets.S3_BUCKET_NAME_PROD }}/dataengineering --delete

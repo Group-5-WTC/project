@@ -6,6 +6,7 @@ on:
       - 'fundamentals/**'
       - 'dataengineering/**'
       - 'mobile/**'
+      - 'oop/**'
       - '.github/workflows/deploy-grading-source-dev.yaml'
 
 jobs:
@@ -27,6 +28,10 @@ jobs:
     - name: Sync Fundamentals to S3
       run: |
         aws s3 sync ./fundamentals s3://${{ secrets.S3_BUCKET_NAME_DEV }}/fundamentals --delete
+
+    - name: Sync OOP to S3
+      run: |
+        aws s3 sync ./oop s3://${{ secrets.S3_BUCKET_NAME_DEV }}/oop --delete
 
     - name: Sync Data Engineering to S3
       run: |
