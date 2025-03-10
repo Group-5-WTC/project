@@ -1,7 +1,6 @@
-package wethinkcode.person.v4;
+package za.co.wethinkcode.person;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
@@ -10,13 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LMSPersonTest
 {
-    @Test
-    void personClassContainsDateValidationMethod() throws NoSuchMethodException {
-        final Method validationMethod = Person.class.getDeclaredMethod( "validateDateOfBirth", LocalDate.class );
-        assertEquals( Void.TYPE, validationMethod.getReturnType() );
-        assertTrue( Modifier.isPrivate( validationMethod.getModifiers() ));
-    }
-
     @Test
     void birthDateCanBeChangedToPastDate(){
         Person testPerson = new Person( "Dave" );
@@ -49,13 +41,6 @@ class LMSPersonTest
     void personClassHasRequiredBirthdateMethod() throws NoSuchMethodException {
         Class<Person> klass = Person.class;
         Method newMethod = klass.getDeclaredMethod( "birthDate", LocalDate.class );
-        assertEquals( Void.TYPE, newMethod.getReturnType() );
-    }
-
-    @Test
-    void personClassHasRequiredValidationMethod() throws NoSuchMethodException {
-        Class<Person> klass = Person.class;
-        Method newMethod = klass.getDeclaredMethod( "validateDateOfBirth", LocalDate.class );
         assertEquals( Void.TYPE, newMethod.getReturnType() );
     }
 }
