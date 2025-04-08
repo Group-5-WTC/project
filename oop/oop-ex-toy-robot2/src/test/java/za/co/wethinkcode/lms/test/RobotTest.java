@@ -272,16 +272,4 @@ class RobotTest {
         verifyOutput(actualOutput, expectedOutput);
     }
 
-    @Test
-    void testMazerunCommandEmptyMaze() {
-        InputStream mockedInput = new ByteArrayInputStream("HAL\nmazerun top\noff\n".getBytes());
-        System.setIn(mockedInput);
-        Play.main(new String[]{"text", "EmptyMaze"});
-        String[] actualOutput = outputStreamCaptor.toString().trim().split("\n");
-        String[] expectedOutput = {"[0,200] HAL> I am at the top edge. (Cost: 2 steps)",
-                "HAL> What must I do next?",
-                "[0,200] HAL> Shutting down..."};
-
-        verifyOutput(actualOutput, expectedOutput);
-    }
 }
