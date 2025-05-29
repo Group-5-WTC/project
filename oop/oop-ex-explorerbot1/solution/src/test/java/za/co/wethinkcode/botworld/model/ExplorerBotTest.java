@@ -26,12 +26,12 @@ public class ExplorerBotTest
     }
 
     @Test
-    void createBot_outsideWorld_yTooSmall(){
+    void createBot_destinationIsOutsideTheWorld_yTooSmall(){
         assertThrows( IllegalArgumentException.class, () -> new ExplorerBot( MIDDLE_X, -1 ));
     }
 
     @Test
-    void createBot_outsideWorld_yTooLarge(){
+    void createBot_destinationIsOutsideTheWorld_yTooLarge(){
         assertThrows( IllegalArgumentException.class, () -> new ExplorerBot( MIDDLE_Y, ExplorerBot.WORLD_MAX_Y + 1 ));
     }
 
@@ -44,7 +44,6 @@ public class ExplorerBotTest
 
     // Tests of the `turnTo` and `move` methods
 
-    // We'll give you the first one for free. After this you're on your own...
     @Test
     void moveNorth_destinationIsInsideTheWorld(){
         ExplorerBot bot =  new ExplorerBot( MIDDLE_X, MIDDLE_Y );
@@ -53,15 +52,61 @@ public class ExplorerBotTest
         assertEquals( MIDDLE_Y - 1, bot.yPosition() );
     }
 
-    //...what about the other directions?...
 
     @Test
-    void moveNorth_DestinationIsOutsideTheWorld(){
+    void move_south_destinationIsInsideTheWorld(){
+        ExplorerBot bot =  new ExplorerBot( MIDDLE_X, MIDDLE_Y );
+        bot.turnTo( S );
+        bot.move();
+        assertEquals( MIDDLE_Y + 1, bot.yPosition() );
+    }
+
+    @Test
+    void move_west_destinationIsInsideTheWorld(){
+        ExplorerBot bot =  new ExplorerBot( MIDDLE_X, MIDDLE_Y );
+        bot.turnTo( W );
+        bot.move();
+        assertEquals( MIDDLE_X - 1, bot.xPosition() );
+    }
+
+    @Test
+    void move_east_destinationIsInsideTheWorld(){
+        ExplorerBot bot =  new ExplorerBot( MIDDLE_X, MIDDLE_Y );
+        bot.turnTo( E );
+        bot.move();
+        assertEquals( MIDDLE_X + 1, bot.xPosition() );
+    }
+
+    @Test
+    void moveNorth_destinationIsOutsideTheWorld(){
         ExplorerBot bot =  new ExplorerBot( MIDDLE_X, 0 );
         bot.turnTo( N );
         bot.move();
         assertEquals( 0, bot.yPosition() );
     }
 
-    //...more tests, please!
+    @Test
+    void move_south_destinationIsOutsideTheWorld(){
+        ExplorerBot bot =  new ExplorerBot( MIDDLE_X, ExplorerBot.WORLD_MAX_Y );
+        bot.turnTo( S );
+        bot.move();
+        assertEquals( ExplorerBot.WORLD_MAX_Y, bot.yPosition() );
+    }
+
+    @Test
+    void move_west_destinationIsOutsideTheWorld(){
+        ExplorerBot bot =  new ExplorerBot( 0, MIDDLE_Y );
+        bot.turnTo( W );
+        bot.move();
+        assertEquals( 0, bot.xPosition() );
+    }
+
+    @Test
+    void move_east_destinationIsOutsideTheWorld(){
+        ExplorerBot bot =  new ExplorerBot( ExplorerBot.WORLD_MAX_X, MIDDLE_Y );
+        bot.turnTo( E );
+        bot.move();
+        assertEquals( ExplorerBot.WORLD_MAX_X, bot.xPosition() );
+    }
+
 }
