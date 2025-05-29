@@ -25,15 +25,14 @@ public class ExplorerBotTest
         assertThrows( IllegalArgumentException.class, () -> new ExplorerBot( ExplorerBot.WORLD_MAX_X + 1, 0 ));
     }
 
-    // This test we leave for you to write, dear student!
     @Test
-    void createBot_initialPositionIsOutsideTheWorld_yTooSmall(){
-        fail( "TODO" );
+    void createBot_outsideWorld_yTooSmall(){
+        assertThrows( IllegalArgumentException.class, () -> new ExplorerBot( MIDDLE_X, -1 ));
     }
 
     @Test
-    void createBot_initialPositionIsOutsideTheWorld_yTooLarge(){
-        fail( "TODO" );
+    void createBot_outsideWorld_yTooLarge(){
+        assertThrows( IllegalArgumentException.class, () -> new ExplorerBot( MIDDLE_Y, ExplorerBot.WORLD_MAX_Y + 1 ));
     }
 
     // Here's a test creating a Bot INSIDE the world (at last!) This means the test should pass if the
