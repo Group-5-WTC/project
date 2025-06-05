@@ -2,6 +2,8 @@ name: Sync Projects Grading Src to S3 - DEV
 
 on:
   push:
+    branches:
+      - main
     paths:
       - "fundamentals/**"
       - "dataengineering/**"
