@@ -9,7 +9,7 @@ def parse_fen(fen):
         else:
             pieces[-1].append(char)
 
-    return ...
+    return ..
 
 
 def generate_moves(board):
