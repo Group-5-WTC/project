@@ -29,8 +29,17 @@ def parse_board(board):
         fen_string += "/"
     return fen_string
 
+# Kamogelo 
 def generate_moves(board):
-    raise NotImplementedError("This function is not implemented yet.")
+    #Move all white pawns
+    moves = []
+    for i in range(0,8):
+        piece_to_move = board[6][i]
+        board[6][i] = board[5][i]
+        board[5][i] = piece_to_move
+        display(board)
+        print()
+        moves.append(parse_board(board))
 
 
 def apply_move(board, move):
