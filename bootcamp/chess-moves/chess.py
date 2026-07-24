@@ -11,6 +11,7 @@ def parse_fen(fen):
 
     return pieces
 
+#Thandolwethu
 def display(game_board):
     rank = 0
     for row in game_board:
@@ -49,7 +50,8 @@ def generate_moves(board):
         display(board)
         print()
         moves.append(parse_board(board))
-
+        
+    return moves
 
 def apply_move(board, move):
     raise NotImplementedError("This function is not implemented yet.")
@@ -57,3 +59,6 @@ def apply_move(board, move):
 game_board = parse_fen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
 print("Starting position")
 display(game_board)
+print()
+generate_moves(game_board)
+print()
