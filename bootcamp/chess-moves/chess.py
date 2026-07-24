@@ -20,7 +20,14 @@ def display(game_board):
         rank += 1
         print()
 
-
+#Nahoom, Sandile
+def parse_board(board):
+    fen_string = ""
+    for row in board:
+        for cell in row: 
+            fen_string += cell
+        fen_string += "/"
+    return fen_string
 
 def generate_moves(board):
     raise NotImplementedError("This function is not implemented yet.")
