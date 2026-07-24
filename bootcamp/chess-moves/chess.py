@@ -29,7 +29,7 @@ def parse_board(board):
         fen_string += "/"
     return fen_string
 
-# Kamogelo 
+# Kamogelo, Nokuthula
 def generate_moves(board):
     #Move all white pawns
     moves = []
@@ -37,6 +37,15 @@ def generate_moves(board):
         piece_to_move = board[6][i]
         board[6][i] = board[5][i]
         board[5][i] = piece_to_move
+        display(board)
+        print()
+        moves.append(parse_board(board))
+        
+    #Move all black pawns
+    for i in range(0,8):
+        piece_to_move = board[1][i]
+        board[1][i] = board[2][i]
+        board[2][i] = piece_to_move
         display(board)
         print()
         moves.append(parse_board(board))
