@@ -11,7 +11,7 @@ def parse_fen(fen):
 
     return pieces
 
-#Thandolwethu
+#Thandolwethu, Faith
 def display(game_board):
     rank = 0
     for row in game_board:
