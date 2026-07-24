@@ -10,7 +10,7 @@ def parse_fen(fen):
             pieces[-1].append(char)
 
     return pieces
-
+#testing
 
 def generate_moves(board):
     raise NotImplementedError("This function is not implemented yet.")
